@@ -2,45 +2,14 @@ import java.util.ArrayList;
 
 public class Demo {
 	public static void main(String args[]) {
-		Team team1 = new Team();
-		team1.teamName = "Feyenoord";
-		team1.player.playerName = "Johan Cruijf";
-		team1.player.playerNumber = 14;
-		team1.player1.playerName = "Zlatan Ibrohimovic";
-		team1.player1.playerNumber = 8;
-
-		Team team2 = new Team();
-		team2.teamName = "Ajax";
-		team2.player.playerNumber = 5;
-		team2.player.playerName = "Dirk Kuyt";
-		team2.player1.playerName = "Jozef Kipric";
-		team2.player1.playerNumber = 9;
-		Player edwin = new Player();
-		edwin.playerName = "Edwin van der Sar";
-		edwin.playerNumber = 1;
-		team1.spelers.add(edwin);
-		team1.spelers.add(team1.player);
-		team1.spelers.add(team1.player1);
-		Player Frits = new Player();
-		Frits.playerName = "Frits Korbach";
-		Frits.playerNumber = 4;
-		team2.spelers.add(Frits);
-		team2.spelers.add(team2.player);
-		team2.spelers.add(team2.player1);
-
-		// public boolean add(E e)
-		// public E get(int index)
-		team1.stelSpelersVoor();
-		team2.stelSpelersVoor();
-
+		Tournament tournament = new Tournament();
+		tournament.spelersmaken();		
 	}
 }
 
 class Team {
 	String teamName;
 	ArrayList<Player> spelers = new ArrayList();
-	Player player = new Player();
-	Player player1 = new Player();
 
 	void stelSpelersVoor() {
 		System.out.println("Wij zijn team "+ teamName + " en spelen met de spelers :");
@@ -53,4 +22,48 @@ class Team {
 class Player {
 	String playerName;
 	int playerNumber;
+}
+
+
+class Tournament{
+	Team team1;
+	Team team2;
+	void spelersmaken() {
+		team1 = new Team();
+		team1.teamName = "Feyenoord";
+		Player johan = new Player();
+		johan.playerName = "Johan Cruijf";
+		johan.playerNumber = 14;
+		Player zlatan = new Player();
+		zlatan.playerName = "Zlatan Ibrohimovic";
+		zlatan.playerNumber = 8;
+
+		team2 = new Team();
+		team2.teamName = "Ajax";
+		Player dirk = new Player();
+		
+		dirk.playerNumber = 5;
+		dirk.playerName = "Dirk Kuyt";
+		Player jozef = new Player();
+		jozef.playerName = "Jozef Kipric";
+		jozef.playerNumber = 9;
+		Player edwin = new Player();
+		edwin.playerName = "Edwin van der Sar";
+		edwin.playerNumber = 1;
+		team1.spelers.add(edwin);
+		team1.spelers.add(johan);
+		team1.spelers.add(zlatan);
+		Player Frits = new Player();
+		Frits.playerName = "Frits Korbach";
+		Frits.playerNumber = 4;
+		team2.spelers.add(Frits);
+		team2.spelers.add(jozef);
+		team2.spelers.add(dirk);
+
+		// public boolean add(E e)
+		// public E get(int index)
+		team1.stelSpelersVoor();
+		team2.stelSpelersVoor();
+
+	}
 }
