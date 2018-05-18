@@ -4,13 +4,13 @@ public class Demo {
     	Team team1 = new Team();
     	team1.teamName = "Feyenoord";
     	team1.player.playerName = "Johan Cruijf";
+    	team1.player.playerNumber = 14;
     	team1.stelSpelersVoor();
-//    	System.out.println(team1.teamName + " has one player named: " + team1.player.playerName);
     	Team team2 = new Team();
     	team2.teamName = "Ajax";
+    	team2.player.playerNumber = 5;
     	team2.player.playerName = "Dirk Kuyt";
     	team2.stelSpelersVoor();
-//    	System.out.println(team2.teamName + " has one player named: " + team2.player.playerName);
     }
 }
 class Team{
@@ -18,12 +18,10 @@ class Team{
 	Player player = new Player();
 	
 	void stelSpelersVoor() {
-		System.out.println(this.teamName + " has one player called: " + this.player.playerName);
-	}
-	
-	
+		System.out.println(this.teamName + " has one player called: " + this.player.playerName + " and his number is: " + player.playerNumber);
+	}	
 }
-
 class Player {
 	String playerName;
-}
+	int playerNumber;
+} 
