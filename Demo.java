@@ -9,32 +9,31 @@ public class Demo {
 		Wedstrijd wedstrijd = new Wedstrijd(ajax, feyenoord); // today
 		wedstrijd.advertise();  // 1 month
 		wedstrijd.playing();
-	}
-	
+	}	
 }
-
 class Wedstrijd{
 	Team thuisTeam; 
 	Team uitTeam;
-	
 	void playing() {
-//		new Wedstrijd(thuisTeam, uitTeam)
 		System.out.println("Wedstrijd wordt gespeeld tussen "+thuisTeam.teamName+" en "+ uitTeam.teamName);
-		thuisTeam.stelSpelersVoor();
-		uitTeam.stelSpelersVoor();
-	}
-	
+		thuisTeam.makeElftal();
+		uitTeam.makeElftal();
+		try {
+			thuisTeam.introElftal();
+			uitTeam.introElftal();
+		}catch(NotAllPlayersAreInException e){
+			System.out.println("THE GAME CAN NOT BE PLAYED DUE TO INCOMPLETE TEAMS");
+		}
+	}	
 	Wedstrijd(Team thuisTeam, Team uitTeam){
-		System.out.println("It is decided that this game will be played in the future");
-//		
+		System.out.println("It is decided that this game will be played in the future");		
 		this.thuisTeam = thuisTeam;
 		this.uitTeam = uitTeam;
 	}
 	void advertise() {
 		System.out.println("Advertisement Buy your tickets");
-	}
-	
+	}	
 }
-
+class NotAllPlayersAreInException extends Exception{}
 
 

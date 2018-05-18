@@ -1,9 +1,8 @@
 public class Player {
 	String playerName;
 	int playerNumber;
-	
+	boolean geschorst;
 	Player(){
-		this("Moet nog naam krijge",99);
 		System.out.println("Lege constructor speler gebruikt");
 	}
 	Player(String name, int number){		
